@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV400 protection sunglasses with polarized lenses, perfect for beach and city.",
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Floral Beach Dress",
+    "brand": "CoastalWear",
+    "price": 35,
+    "rating": 4.5,
+    "stock": 8,
+    "description": "Lightweight floral sundress made from breathable cotton, ideal for beach outings.",
+    "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500",
+    "category": "Clothing"
+  },
+  {
+    "id": 3,
+    "name": "SPF 50 Sunscreen Lotion",
+    "brand": "GlowGuard",
+    "price": 12,
+    "rating": 4.8,
+    "stock": 25,
+    "description": "Water-resistant SPF 50 sunscreen with aloe vera extract for all-day protection.",
+    "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500",
+    "category": "Skincare"
+  },
+  {
+    "id": 4,
+    "name": "Inflatable Beach Ball",
+    "brand": "WavePlay",
+    "price": 8,
+    "rating": 4.3,
+    "stock": 50,
+    "description": "Colorful oversized inflatable beach ball for pool and beach fun.",
+    "image": "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=500",
+    "category": "Beach Accessories"
+  },
+  {
+    "id": 5,
+    "name": "Straw Sun Hat",
+    "brand": "SunShade",
+    "price": 22,
+    "rating": 4.6,
+    "stock": 15,
+    "description": "Wide-brim woven straw hat with UPF 50+ for stylish sun protection.",
+    "image": "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500",
+    "category": "Accessories"
+  },
+  {
+    "id": 6,
+    "name": "Waterproof Beach Sandals",
+    "brand": "TideWalker",
+    "price": 28,
+    "rating": 4.4,
+    "stock": 20,
+    "description": "Quick-dry waterproof sandals with non-slip soles for beach and poolside.",
+    "image": "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=500",
+    "category": "Footwear"
+  }
+]
