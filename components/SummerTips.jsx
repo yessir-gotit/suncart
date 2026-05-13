@@ -72,7 +72,7 @@ export default function SummerTips() {
         {/* Man animate.css is so confusing asf couldn't solve it without AI's help */}
         <div
           className="md:col-span-2 bg-linear-to-r from-orange-100 to-amber-50 rounded-4xl p-10 relative overflow-hidden group border border-white/50 shadow-sm hover:shadow-xl transition-all duration-500 animate__animated animate__fadeInUp"
-          style={{ animationDelay: '150ms' }}
+          style={{ animationDelay: '300ms' }}
           onAnimationEnd={(e) => {
             e.currentTarget.classList.remove('animate__animated', 'animate__fadeInUp');
           }}
@@ -113,7 +113,7 @@ export default function SummerTips() {
 
         <div
           className="md:col-span-2 bg-base-100 rounded-4xl p-10 relative overflow-hidden group border border-base-200 shadow-sm hover:shadow-xl transition-all duration-500 animate__animated animate__fadeInUp"
-          style={{ animationDelay: '300ms' }}
+          style={{ animationDelay: '300ms', animationFillMode: 'both'}}
           onAnimationEnd={(e) => {
             e.currentTarget.classList.remove('animate__animated', 'animate__fadeInUp');
           }}
