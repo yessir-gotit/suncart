@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 export default function ProductCard({ product }) {
   const { id, name, image, price, rating, category, brand } = product;
 
-  // Renders filled/empty stars
+ 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
     const hasHalf = rating % 1 >= 0.5;

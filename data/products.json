@@ -3,11 +3,11 @@
     "id": 1,
     "name": "UV Protection Sunglasses",
     "brand": "SunShade",
-    "price": 15,
+    "price": 18,
     "rating": 4.7,
     "stock": 10,
-    "description": "Stylish UV400 protection sunglasses with polarized lenses, perfect for beach and city.",
-    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500",
+    "description": "Essential UV400 protection. We went for a classic polarized lens that works for both beach days and the morning commute.",
+    "image": "https://images.unsplash.com/photo-1566421966482-ad8076104d8e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "category": "Accessories"
   },
   {
@@ -17,8 +17,8 @@
     "price": 35,
     "rating": 4.5,
     "stock": 8,
-    "description": "Lightweight floral sundress made from breathable cotton, ideal for beach outings.",
-    "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500",
+    "description": "Super lightweight floral sundress. It's made from breathable cotton, so you won't melt during those outdoor beach parties.",
+    "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800",
     "category": "Clothing"
   },
   {
@@ -28,8 +28,8 @@
     "price": 12,
     "rating": 4.8,
     "stock": 25,
-    "description": "Water-resistant SPF 50 sunscreen with aloe vera extract for all-day protection.",
-    "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500",
+    "description": "Water-resistant SPF 50. We added aloe vera extract so it doesn't leave that weird sticky feeling. Protect your skin!",
+    "image": "https://images.unsplash.com/photo-1521223344201-d169129f7b7d?w=800",
     "category": "Skincare"
   },
   {
@@ -39,8 +39,8 @@
     "price": 8,
     "rating": 4.3,
     "stock": 50,
-    "description": "Colorful oversized inflatable beach ball for pool and beach fun.",
-    "image": "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=500",
+    "description": "It's an oversized beach ball. It's colorful, it floats, and it's perfect for the pool. What else do you need?",
+    "image": "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800",
     "category": "Beach Accessories"
   },
   {
@@ -50,8 +50,8 @@
     "price": 22,
     "rating": 4.6,
     "stock": 15,
-    "description": "Wide-brim woven straw hat with UPF 50+ for stylish sun protection.",
-    "image": "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500",
+    "description": "Classic wide-brim woven straw hat. Offers UPF 50+ protection so you stay cool and covered.",
+    "image": "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=800",
     "category": "Accessories"
   },
   {
@@ -61,8 +61,8 @@
     "price": 28,
     "rating": 4.4,
     "stock": 20,
-    "description": "Quick-dry waterproof sandals with non-slip soles for beach and poolside.",
-    "image": "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=500",
+    "description": "Quick-dry sandals with non-slip soles. Great for rocky beaches or just walking around the pool without slipping.",
+    "image": "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=800",
     "category": "Footwear"
   }
 ]

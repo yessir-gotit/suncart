@@ -21,7 +21,7 @@ export default function ProductsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
 
-      <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-6">
+      <h1 className="text-3xl md:text-4xl font-black mb-6">
         All Summer Products
       </h1>
 
