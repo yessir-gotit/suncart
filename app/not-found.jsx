@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div className="relative flex items-center justify-center min-h-[80vh] overflow-hidden">
      
-      <div className="absolute w-[500px] h-[500px] rounded-full bg-linear-to-r from-primary/20 to-secondary/20 blur-3xl animate-pulse" />
+      <div className="absolute w-125 h-125 rounded-full bg-linear-to-r from-primary/20 to-secondary/20 blur-3xl animate-pulse" />
 
      
       <div className="absolute text-[12rem] font-black text-primary opacity-20 select-none pointer-events-none">

@@ -20,7 +20,7 @@ const inter = Inter({
 
 export const metadata = {
   title: "SunCart - Your One-Stop Summer Shop",
-  description: "Discover the best summer products — from sunglasses to sunscreen, we've got you covered.",
+  description: "Discover the best summer products from sunglasses to sunscreen, we've got you covered.",
 };
 
 export default function RootLayout({ children }) {
