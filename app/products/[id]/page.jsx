@@ -2,24 +2,18 @@
 import NotFound from "@/app/not-found";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 import Image from "next/image";
 import { Star, ArrowLeft, ShoppingBag, Check, X } from "lucide-react";
 import products from "@/data/products.json";
-// TODO: adjust auth import path based on actual BetterAuth setup
-// import { useSession } from "@/lib/auth-client";
-// import { useRouter } from "next/navigation";
-// import { useEffect } from "react";
-
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import Loading from "@/app/loading";
 export default function ProductDetailPage() {
   const params = useParams();
   const productId = Number(params.id);
 
-  // TODO: Uncomment for auth protection
-  // const { data: session, isPending } = useSession();
-  // const router = useRouter();
-  // useEffect(() => {
-  //   if (!isPending && !session) router.push("/login");
-  // }, [session, isPending]);
 
   const product = products.find((p) => p.id === productId);
 
@@ -46,8 +40,25 @@ export default function ProductDetailPage() {
 
     return stars;
   };
+  const router = useRouter();
+  const { data: session, isPending } = authClient.useSession();
+
+  useEffect(() => {
+    if (!isPending && !session) {
+      router.replace(`/login?redirect=${encodeURIComponent(window.location.pathname)}`);
+
+    }
+  }, [session, isPending, router]);
+
+  if (isPending) {
+    return <Loading />;
+  }
+  if (!session) {
+    return null; 
+  }
 
   return (
+    <>
     <div className="max-w-7xl mx-auto px-6 py-12 animate__animated animate__fadeIn">
       
       <Link
@@ -145,8 +156,12 @@ export default function ProductDetailPage() {
             />
             Add to Cart
           </button>
+          
         </div>
       </div>
+      
     </div>
+    <Footer />
+    </>
   );
 }

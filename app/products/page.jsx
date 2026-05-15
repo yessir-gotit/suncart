@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Search, SlidersHorizontal, XCircle } from "lucide-react";
+import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import products from "@/data/products.json";
 
@@ -97,6 +98,7 @@ export default function ProductsPage() {
         )}
 
       </div>
+      <Footer />
     </div>
   );
 }

@@ -3,18 +3,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Sun, Menu, User, LogOut, ShoppingBag } from "lucide-react";
+import { toast } from "react-toastify";
+import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
-  const session = null;
-  const isPending = false;
+  const { data: session, isPending } = authClient.useSession();
 
   return (
-    <div className="sticky top-0 z-5 transition-all duration-500 animate__animated animate__fadeInDown animate__faster">
+    <div className="sticky top-0 z-20 transition-all duration-500 animate__animated animate__fadeInDown animate__faster">
       <div className="bg-base-100/60 backdrop-blur-xl border-b border-white/40 shadow-sm transition-colors duration-300">
-
         <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-
           {/* Logo  */}
           <div className="navbar-start">
             <Link href="/" className="flex items-center gap-1 sm:gap-2 group">
@@ -28,7 +26,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Links */}
+          {/* Desktop Link */}
           <div className="navbar-center hidden md:flex">
             <ul className="flex items-center gap-4 lg:gap-8">
               <li>
@@ -61,29 +59,33 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* Mobile Menu with Auth */}
+          {/* Mobile Menu with Authenticaton */}
           <div className="navbar-end gap-2">
-     
             <div className="dropdown dropdown-end md:hidden">
               <div
                 tabIndex={0}
                 role="button"
                 className="btn btn-ghost hover:bg-primary/10 transition-colors duration-300"
-              
               >
                 <Menu size={24} />
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-1 p-3 w-screen max-w-[calc(100vw-2rem)] sm:max-w-56 bg-base-100/90 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl animate__animated animate__fadeIn animate__faster"
+                className="menu menu-sm dropdown-content mt-3 z-1 p-3 w-72 right-0 sm:w-56 bg-base-100/90 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl animate__animated animate__fadeIn animate__faster"
               >
                 <li>
-                  <Link href="/" className="text-base font-semibold hover:text-primary active:scale-95 transition-all">
+                  <Link
+                    href="/"
+                    className="text-base font-semibold hover:text-primary active:scale-95 transition-all"
+                  >
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/products" className="text-base font-semibold hover:text-primary active:scale-95 transition-all">
+                  <Link
+                    href="/products"
+                    className="text-base font-semibold hover:text-primary active:scale-95 transition-all"
+                  >
                     Products
                   </Link>
                 </li>
@@ -91,21 +93,53 @@ export default function Navbar() {
                   <hr className="my-1 border-base-content/10" />
                 </li>
 
-
                 {isPending ? (
                   <li>
                     <span className="loading loading-spinner loading-sm mx-auto my-2"></span>
                   </li>
                 ) : session ? (
                   <>
+                    {/* Avatar + User Name + Email header */}
+                    <li className=" py-2 border-b border-base-content/10 mb-1">
+                      <div className="flex items-start gap-3">
+                        <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0">
+                          <Image
+                            src={
+                              session.user?.image ||
+                              "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                            }
+                            alt="Avatar"
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold text-base-content truncate">
+                            {session.user?.name}
+                          </p>
+                          <p className="text-xs text-base-content/50 truncate">
+                            {session.user?.email}
+                          </p>
+                        </div>
+                      </div>
+                    </li>
                     <li>
-                      <Link href="/my-profile" className="flex items-center gap-3 text-base font-semibold hover:text-primary transition-colors">
+                      <Link
+                        href="/my-profile"
+                        className="flex items-center gap-3 text-base font-semibold hover:text-primary transition-colors"
+                      >
                         <User size={18} />
                         My Profile
                       </Link>
                     </li>
                     <li>
-                      <button className="flex items-center gap-3 text-base font-semibold hover:text-error transition-colors w-full">
+                      <button
+                        onClick={async () => {
+                          await authClient.signOut();
+                          toast.info("You've been logged out.");
+                        }}
+                        className="flex items-center gap-3 text-base font-semibold hover:text-error transition-colors w-full"
+                      >
                         <LogOut size={18} />
                         Logout
                       </button>
@@ -114,13 +148,19 @@ export default function Navbar() {
                 ) : (
                   <>
                     <li>
-                      <Link href="/login" className="flex items-center gap-3 text-base font-semibold hover:bg-primary/10 hover:text-primary transition-all rounded-lg px-3 py-2">
+                      <Link
+                        href="/login"
+                        className="flex items-center gap-3 text-base font-semibold hover:bg-primary/10 hover:text-primary transition-all rounded-lg px-3 py-2"
+                      >
                         <User size={18} />
                         Login
                       </Link>
                     </li>
                     <li>
-                      <Link href="/register" className="flex items-center gap-3 text-base font-semibold text-primary bg-primary/10 hover:bg-primary/20 transition-all rounded-lg px-3 py-2">
+                      <Link
+                        href="/register"
+                        className="flex items-center gap-3 text-base font-semibold text-primary bg-primary/10 hover:bg-primary/20 transition-all rounded-lg px-3 py-2"
+                      >
                         <ShoppingBag size={18} />
                         Register
                       </Link>
@@ -133,33 +173,36 @@ export default function Navbar() {
             {isPending ? (
               <span className="loading loading-spinner loading-sm"></span>
             ) : session ? (
-      
-
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="dropdown dropdown-end">
-                  <div tabIndex={0} role="button" className="avatar hover:opacity-80 transition-opacity duration-300">
-                
-
-                    <div className="relative w-8 sm:w-10 h-8 sm:h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden">
-                      <Image
-                        src={session.user?.image || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
-                        alt="Avatar"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                  <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-3 w-56 bg-base-100/90 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl animate__animated animate__fadeIn animate__faster">
-
-                    <li><Link href="/my-profile" className="flex gap-3 text-base font-semibold"><User size={18} /> My Profile</Link></li>
-                    <li><button className="flex gap-3 text-base font-semibold hover:text-error transition-colors"><LogOut size={18} /> Logout</button></li>
-                  </ul>
+              <div className="hidden md:flex items-center gap-2 sm:gap-3">
+                {/* Avatar - static image, no dropdown */}
+                <div className="relative w-8 sm:w-10 h-8 sm:h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden">
+                  <Image
+                    src={
+                      session.user?.image ||
+                      "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    }
+                    alt="Avatar"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
+                {/* User Name */}
+                <span className="text-sm font-semibold text-base-content/80 max-w-30 truncate">
+                  {session.user?.name}
+                </span>
+                {/* Logout button */}
+                <button
+                  onClick={async () => {
+                    await authClient.signOut();
+                    toast.info("You've been logged out.");
+                  }}
+                  className="btn btn-ghost btn-sm flex items-center gap-2 hover:text-error transition-colors"
+                >
+                  <LogOut size={18} />
+                  <span>Logout</span>
+                </button>
               </div>
             ) : (
-    
-
-
               <div>
                 <Link
                   href="/login"

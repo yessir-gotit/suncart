@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import PopularProducts from "@/components/PopularProducts";
 import SummerTips from "@/components/SummerTips";
@@ -15,6 +16,8 @@ export default function Home() {
 
 
       <TopBrands />
+
+      <Footer />
     </>
   );
 }
